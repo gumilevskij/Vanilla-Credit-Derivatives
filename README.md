@@ -2,12 +2,10 @@
  
 ## Authors: Alexei Goumilevski
 
-## What it is:
-
+### What it is:
 Financial derivatives are instruments whose value is derived from an underlying asset, index, or rate. This repository provides Python example code focused on vanilla credit derivatives to support robust quantitative analysis and risk management.
 
-## Key features include:
-
+### Key features include:
 - Computing Greeks and performing sensitivity analysis
 - Modeling derivative risks
 - Conducting stress testing
@@ -15,14 +13,12 @@ Financial derivatives are instruments whose value is derived from an underlying 
 
   These tools are designed to aid in effective derivatives risk management and quantitative research.
 
-## Requirements:
-
+### Requirements:
 - Python 3.9 or higher
 - QuantLib Python bindings (pip install QuantLib)
 - Additional dependencies such as numpy and pandas (install via pip)
 
-## Installation:
-
+### Installation:
 - Clone this repository:
   git clone https://github.com/gumilevskij/Vanilla-Credit-Derivatives.git
 - (Optional) Create and activate a virtual environment.
@@ -31,14 +27,12 @@ Financial derivatives are instruments whose value is derived from an underlying 
 -  or manually:
    pip install QuantLib numpy pandas
 
-## Usage:
-
+### Usage:
  - Run example scripts to see typical workflows, e.g.:
    python src/greeks_cds.py
 
 
-## Contributing:
-
+### Contributing:
 - Contributions are welcome!
 
 
