@@ -1,6 +1,6 @@
 # Python Code Examples of Vanilla Credit Derivatives
  
-### Authors: Alexei Goumilevski
+### Author: Alexei Goumilevski
 
 ### What it is:
 Financial derivatives are instruments whose value is derived from an underlying asset, index, or rate. This repository provides Python example code focused on vanilla credit derivatives to support robust quantitative analysis and risk management.
