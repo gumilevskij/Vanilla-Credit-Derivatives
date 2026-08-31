@@ -1,21 +1,41 @@
-# Example Implementations for Vanilla and Exotic Derivative Instruments
+# Python Code Examples of Vanilla Credit Derivatives
  
 ## Authors: Alexei Goumilevski
 
 ## What it is:
-Credit derivatives are financial instruments whose value is derived from an underlying asset, index, or rate. They are extensively used for hedging risk, speculation, arbitrage, and enhancing portfolio returns.
+Financial derivatives are instruments whose value is derived from an underlying asset, index, or rate. This repository provides Python example code focused on vanilla credit derivatives to support robust quantitative analysis and risk management.
 
-This repository provides Python example code to:
-- Compute Greeks and perform sensitivity analysis
-- Model derivatives risks
-- Conduct stress testing
-- Implement factor modeling
+## Key features include:
+- Computing Greeks and performing sensitivity analysis
+- Modeling derivative risks
+- Conducting stress testing
+- Implementing factor modeling techniques
 
-These tools are designed to support robust derivatives risk management and quantitative analysis.
+  These tools are designed to aid in effective derivatives risk management and quantitative research.
 
-Users are advised to install [`QuantLib`](https://www.quantlib.org) library:
-pip install quantlib
+## Requirements:
+- Python 3.9 or higher
+- QuantLib Python bindings (pip install QuantLib)
+- Additional dependencies such as numpy and pandas (install via pip)
 
-## DISCLAIMERS:
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+## Installation:
+- Clone this repository:
+  git clone https://github.com/gumilevskij/Vanilla-Credit-Derivatives.git
+- (Optional) Create and activate a virtual environment.
+- Install dependencies:
+   pip install -r requirements.txt
+-  or manually:
+   pip install QuantLib numpy pandas
 
+## Usage:
+ - Run example scripts to see typical workflows, e.g.:
+   python src/greeks_cds.py
+
+
+## Contributing:
+- Contributions are welcome! Please:
+
+
+## License & Disclaimer:
+This project is licensed under the MIT License.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. USE AT YOUR OWN RISK.
