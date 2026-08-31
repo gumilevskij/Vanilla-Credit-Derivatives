@@ -3,7 +3,7 @@
 ## Authors: Alexei Goumilevski
 
 ## What it is:
-Finance derivatives are financial instruments whose value is derived from an underlying asset, index, or rate. They are extensively used for hedging risk, speculation, arbitrage, and enhancing portfolio returns.
+Credit derivatives are financial instruments whose value is derived from an underlying asset, index, or rate. They are extensively used for hedging risk, speculation, arbitrage, and enhancing portfolio returns.
 
 This repository provides Python example code to:
 - Compute Greeks and perform sensitivity analysis
