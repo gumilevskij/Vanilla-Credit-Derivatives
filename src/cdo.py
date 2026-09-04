@@ -59,28 +59,28 @@ def loss_probability(rho,attachment,detachment,t,default_times):
     I2 = portfolio_loss >= attachment
     loss_prob = np.mean(I1*I2)
     # TODO implement default_times
-    # loss_prob = []
-    # for i in range(n_simulations):
-    #     times = default_times[i]
-    #     for j in range(n_entities):
-    #         common_factor = np.random.normal(0, 1, num_simulations)
-    #         idiosyncratic = np.random.normal(0, 1, (num_simulations, n_entities))
+    loss_prob = []
+    for i in range(n_simulations):
+        times = default_times[i]
+        for j in range(n_entities):
+            common_factor = np.random.normal(0, 1, num_simulations)
+            idiosyncratic = np.random.normal(0, 1, (num_simulations, n_entities))
             
-    #         asset_values = np.sqrt(rho) * common_factor[:, None] + np.sqrt(1 - rho) * idiosyncratic
+            asset_values = np.sqrt(rho) * common_factor[:, None] + np.sqrt(1 - rho) * idiosyncratic
             
-    #         default_threshold = norm.ppf(default_prob)
-    #         defaults = (asset_values < default_threshold).astype(int)
+            default_threshold = norm.ppf(default_prob)
+            defaults = (asset_values < default_threshold).astype(int)
             
-    #         portfolio_loss = defaults.mean(axis=1)  # fraction of assets defaulted
+            portfolio_loss = defaults.mean(axis=1)  # fraction of assets defaulted
             
-    #         I1 = detachment > portfolio_loss
-    #         I2 = portfolio_loss >= attachment
-    #         if t > times[j]:
-    #             loss_prob.append(np.mean(I1*I2))
-    #         else:
-    #             loss_prob.append(0)
+            I1 = detachment > portfolio_loss
+            I2 = portfolio_loss >= attachment
+            if t > times[j]:
+                loss_prob.append(np.mean(I1*I2))
+            else:
+                loss_prob.append(0)
                 
-    # loss_prob = np.mean(loss_prob)           
+    loss_prob = np.mean(loss_prob)           
     return loss_prob
 
 # Example portfolio data
@@ -106,8 +106,9 @@ n_simulations = 10000
 default_times = simulate_default_times(hazard_rates, corr_matrix, n_simulations, maturity)
 
 # Define tranche attachment and detachment points (e.g., 3% to 7%)
-attachments = [0,0.03,0.07,0.15,0.35,0.9]
-detachments = [0.03,0.07,0.15,0.35,0.9,1.0]
+attachments = [0,0.03,0.07,0.12,0.25]
+detachments = [0.03,0.07,0.12,0.25,1.0]
+tranche_name = ['Equity','Junior Mezzanine','Senior Mezzanine','Senior','Super Senior']
 n_tranches = len(attachments)
 loss_levels = np.linspace(0, 1, 100)  # Loss from 0% to 100%
 
@@ -118,7 +119,7 @@ for attachment,detachment in zip(attachments,detachments):
     
     # 5. Estimate expected tranche loss (proxy for tranche value)
     expected_tranche_loss[i] = np.mean(tranche_losses)
-    print(f"Expected tranche loss [{attachment} - {detachment}]: {expected_tranche_loss[i]:.3e}")
+    print(f"Expected tranche loss [{100*attachment:.0f}% - {100*detachment:.0f}%]: {expected_tranche_loss[i]:.3e}")
 
     # Calculate protection leg (PV of expected losses)
     protection_leg = expected_tranche_loss[i] * notionals.sum() * np.exp(-discount_rate * maturity)
@@ -133,17 +134,19 @@ for attachment,detachment in zip(attachments,detachments):
     spread[i] = protection_leg / premium_leg
     i += 1
     
-fig,axes = plt.subplots(2,1,figsize=(6, 8))
+fig,axes = plt.subplots(2,1,figsize=(8, 8))
 axes[0].plot(np.arange(n_tranches),expected_tranche_loss)
 axes[0].set_title('Expected tranches losses')
 axes[0].set_xlabel('Tranch')
 axes[0].set_ylabel('Losses')
+axes[0].set_xticks([0,1,2,3,4],tranche_name,rotation=0)
 axes[0].grid(True)
 
 axes[1].plot(np.arange(n_tranches),100*spread)
 axes[1].set_title('Spread')
 axes[1].set_xlabel('Tranch')
 axes[1].set_ylabel('%')
+axes[1].set_xticks([0,1,2,3,4],tranche_name,rotation=0)
 axes[1].grid(True)
 
 plt.tight_layout()
