@@ -31,8 +31,9 @@ Financial derivatives are instruments whose value is derived from an underlying 
 
 ### Usage:
  - Run example scripts to see typical workflows, e.g.:
+```bash
    python src/greeks_cds.py
-
+```
 
 ### Contributing:
 - Contributions are welcome!
