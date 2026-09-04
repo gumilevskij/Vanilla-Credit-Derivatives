@@ -1,6 +1,6 @@
 # The code defines a portfolio of European call options.
 # It computes portfolio values under increasing volatility shocks (from 1x to 3x base volatility).
-# It computes portfolio values under increasing gap risk (price drops from 0% to 30%).
+# and under increasing gap risk (price drops from 0% to 30%).
 
 import numpy as np
 import matplotlib.pyplot as plt
