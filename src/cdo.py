@@ -106,9 +106,9 @@ n_simulations = 10000
 default_times = simulate_default_times(hazard_rates, corr_matrix, n_simulations, maturity)
 
 # Define tranche attachment and detachment points (e.g., 3% to 7%)
-attachments = [0,0.03,0.07,0.12,0.25]
-detachments = [0.03,0.07,0.12,0.25,1.0]
-tranche_name = ['Equity','Junior Mezzanine','Senior Mezzanine','Senior','Super Senior']
+attachments = [0,0.03,0.07,0.15,0.35,0.8]
+detachments = [0.03,0.07,0.15,0.35,0.8,1.0]
+tranche_name = ['Equity','Junior Mezzanine','Mezzanine','Senior Mezzanine','Senior','Super Senior']
 n_tranches = len(attachments)
 loss_levels = np.linspace(0, 1, 100)  # Loss from 0% to 100%
 
@@ -139,14 +139,14 @@ axes[0].plot(np.arange(n_tranches),expected_tranche_loss)
 axes[0].set_title('Expected tranches losses')
 axes[0].set_xlabel('Tranch')
 axes[0].set_ylabel('Losses')
-axes[0].set_xticks([0,1,2,3,4],tranche_name,rotation=0)
+axes[0].set_xticks([0,1,2,3,4,5],tranche_name,rotation=0)
 axes[0].grid(True)
 
 axes[1].plot(np.arange(n_tranches),100*spread)
 axes[1].set_title('Spread')
 axes[1].set_xlabel('Tranch')
 axes[1].set_ylabel('%')
-axes[1].set_xticks([0,1,2,3,4],tranche_name,rotation=0)
+axes[1].set_xticks([0,1,2,3,4,5],tranche_name,rotation=0)
 axes[1].grid(True)
 
 plt.tight_layout()
