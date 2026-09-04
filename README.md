@@ -27,7 +27,7 @@ Financial derivatives are instruments whose value is derived from an underlying 
 -  or manually:
 ```bash
    pip install QuantLib numpy pandas
-```bash
+```
 
 ### Usage:
  - Run example scripts to see typical workflows, e.g.:
